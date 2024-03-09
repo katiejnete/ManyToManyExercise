@@ -1,0 +1,13 @@
+{% extends 'list_users.html' %}
+
+{% block title %}Create Tag{% endblock %} 
+
+{% block content %}
+<h1>Create Tag</h1>
+<form action="/tags/new" method="post">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter a name for tag" maxlength="60" required>
+    <input type="submit" value="Cancel" formaction="/tags" formmethod="get" formnovalidate>
+    <button>Add</button>
+</form>
+{% endblock %}

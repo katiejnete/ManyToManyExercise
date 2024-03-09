@@ -1,0 +1,39 @@
+{% extends 'list_users.html' %} {% block title %}User Edit Page{% endblock %} 
+
+{% block content %}
+<h1>
+  Edit {{user.first_name}}{% if user.last_name%} {{user.last_name}}{% else %}{%
+  endif %}
+</h1>
+<form action="/users/{{user.id}}/edit" method="post">
+  <div>
+    <label for="firstName">First Name:</label>
+    <input
+      type="text"
+      id="firstName"
+      name="firstName"
+      placeholder="Update first name"
+    />
+  </div>
+  <div>
+    <label for="lastName">Last Name:</label>
+    <input
+      type="text"
+      id="lastName"
+      name="lastName"
+      placeholder="Update last name"
+    />
+  </div>
+  <div>
+    <label for="imageURL">User Profile Picture URL:</label>
+    <input
+      type="url"
+      id="imageURL"
+      name="imageURL"
+      placeholder="Update image URL"
+    />
+  </div>
+  <input type="submit" value="Cancel" formaction="/users/{{user.id}}" formmethod="get" formnovalidate></button>
+  <button>Save</button>
+</form>
+{% endblock %}

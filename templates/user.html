@@ -1,0 +1,26 @@
+{% extends 'list_users.html' %}
+
+{% block title %}User Detail Page{% endblock %} 
+
+{% block content %}
+<h1>{{user.first_name}}{% if user.last_name%} {{user.last_name}}{% else %}{% endif %}'s Page</h1>
+<img src={{user.image_url}} alt="profile picture">
+<section class="User-settings">
+<h2>{{user.first_name}}{% if user.last_name%} {{user.last_name}}{% else %}{% endif %}</h2>
+    <form action="/users/{{user.id}}/edit">
+        <button>Edit</button>
+        <button formaction="/users/{{user.id}}/delete" formmethod="post">Delete</button>
+    </form>
+</section>
+<section class="User-posts">
+    <h3>Posts</h3>
+    <ul>
+        {% for post in user.posts %}
+        <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+        {% endfor %}
+    </ul>
+    <form action="/users/{{user.id}}/posts/new">
+        <button>Add Post</button>
+    </form>
+</section>
+{% endblock %}

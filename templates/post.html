@@ -1,0 +1,19 @@
+{% extends 'list_users.html' %}
+
+{% block title %}Post Detail Page{% endblock %} 
+
+{% block content %}
+<h1>{{post.title}}</h1>
+<p>{{post.content}}</p>
+<h4>Tags:</h4>
+<ul>
+{% for tag in tags %}
+<li><a href="/tags/{{tag.id}}">{{tag.name}}</a></li>
+{% endfor %}
+</ul>
+<form action="/posts/{{post.id}}/edit" method="get">
+    <input type="submit" value="Go Back" formaction="/users/{{user_id}}" formmethod="get" formnovalidate></button>
+    <button>Edit</button>
+    <button formaction="/posts/{{post.id}}/delete" formmethod="post">Delete</button>
+</form>
+{% endblock %}

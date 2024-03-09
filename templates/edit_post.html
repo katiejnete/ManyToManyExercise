@@ -1,0 +1,34 @@
+{% extends 'list_users.html' %} {% block title %}Post Edit Page{% endblock %} 
+
+{% block content %}
+<h1>Edit Post</h1>
+<form action="/posts/{{post.id}}/edit" method="post">
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title">
+    </div>
+    <div>
+        <label for="content">Content:</label> <br>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+    </div>
+    <fieldset>
+        <legend>Check tags that apply:</legend>
+        {% for tag in tagged %}
+        <div>
+            <input type="checkbox" id="{{tag.id}}"" name="tag" value="{{tag.id}}" checked>
+            <label for="{{tag.id}}">{{tag.name}}</label>
+        </div>
+        {% endfor %}
+        {% if untagged %}
+        {% for tag in untagged %}
+        <div>
+            <input type="checkbox" id="{{tag.id}}"" name="tag" value="{{tag.id}}">
+            <label for="{{tag.id}}">{{tag.name}}</label>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </fieldset>
+    <input type="submit" value="Cancel" formaction="/users/{{user_id}}" formmethod="get" formnovalidate>
+    <button>Add</button>
+</form>
+{% endblock %}

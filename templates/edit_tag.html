@@ -1,0 +1,13 @@
+{% extends 'list_users.html' %}
+
+{% block title %}Edit Tag{% endblock %} 
+
+{% block content %}
+<h1>Edit Tag</h1>
+<form action="/tags/{{tag_id}}/edit" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" placeholder="Enter new name for tag">
+    <input type="submit" value="Cancel" formaction="/tags" formmethod="get" formnovalidate>
+    <button>Add</button>
+</form>
+{% endblock %}

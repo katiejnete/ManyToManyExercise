@@ -1,0 +1,18 @@
+{% extends 'list_users.html' %} {% block title %}Tags{% endblock %} 
+
+{% block content %}
+<h1>Tags</h1>
+{% if get_flashed_messages() %}
+{% for msg in get_flashed_messages() %}
+<p>{{msg}}</p>
+{% endfor %}
+{% endif %}
+<ul>
+{% for tag in tags %}
+<li><a href="/tags/{{tag.id}}">{{tag.name}}</a></li>
+{% endfor %}
+</ul>
+<form action="/tags/new">
+    <button>Add Tag</button>
+</form>
+{% endblock %}
