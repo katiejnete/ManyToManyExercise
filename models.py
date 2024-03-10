@@ -70,8 +70,6 @@ class Tag(db.Model):
                      nullable=False,
                      unique=True)
     
-    tagged = db.relationship('PostTag', backref='tag')
-    
     def __repr__(self):
         return f"<Tag {self.name}>"
     
